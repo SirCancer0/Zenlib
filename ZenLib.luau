@@ -323,7 +323,7 @@ local CurrentCamera = workspace.CurrentCamera;
 
 local Compkiller = {
 	Version = '1.6',
-	Logo = "rbxassetid://120245531583106",
+	Logo = "rbxassetid://131585227442840",
 	Windows = {},
 	Scale = {
 		Window = UDim2.new(0, 456,0, 499),
