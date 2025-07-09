@@ -321,9 +321,9 @@ local CoreGui: PlayerGui = (gethui and gethui()) or cloneref(game:FindFirstChild
 local Mouse = LocalPlayer:GetMouse();
 local CurrentCamera = workspace.CurrentCamera;
 
-local ZenHub = {
+local Compkiller = {
 	Version = '1.6',
-	Logo = "rbxassetid://131585227442840",
+	Logo = "rbxassetid://120245531583106",
 	Windows = {},
 	Scale = {
 		Window = UDim2.new(0, 456,0, 499),
@@ -334,19 +334,19 @@ local ZenHub = {
 	ArcylicParent = workspace.CurrentCamera
 };
 
-ZenHub.Colors = {
-Highlight = Color3.fromRGB(138, 43, 226),
-	Toggle = Color3.fromRGB(147, 112, 219),
-	Risky = Color3.fromRGB(186, 85, 211),
-	BGDBColor = Color3.fromRGB(25, 19, 35),
-	BlockColor = Color3.fromRGB(32, 25, 42),
-	StrokeColor = Color3.fromRGB(45, 35, 58),
-	SwitchColor = Color3.fromRGB(216, 191, 216),
-	DropColor = Color3.fromRGB(38, 28, 48),
-	MouseEnter = Color3.fromRGB(75, 60, 95),
-	BlockBackground = Color3.fromRGB(48, 38, 62),
-	LineColor = Color3.fromRGB(85, 70, 105),
-	HighStrokeColor = Color3.fromRGB(65, 50, 85),
+Compkiller.Colors = {
+	Highlight = Color3.fromRGB(17, 238, 253),
+	Toggle = Color3.fromRGB(14, 203, 213),
+	Risky = Color3.fromRGB(251, 255, 39),
+	BGDBColor = Color3.fromRGB(22, 24, 29),
+	BlockColor = Color3.fromRGB(28, 29, 34),
+	StrokeColor = Color3.fromRGB(37, 38, 43),
+	SwitchColor = Color3.fromRGB(255, 255, 255),
+	DropColor = Color3.fromRGB(33, 35, 39),
+	MouseEnter = Color3.fromRGB(55, 58, 65),
+	BlockBackground = Color3.fromRGB(39, 40, 47),
+	LineColor = Color3.fromRGB(65, 65, 65),
+	HighStrokeColor = Color3.fromRGB(55, 56, 63),
 };
 
 Compkiller.Elements = {
@@ -363,12 +363,12 @@ Compkiller.Elements = {
 	HighStrokeColor = {},
 };
 
-ZenHub.DragBlacklist = {};
-ZenHub.IaDrag = false;
-ZenHub.LastDrag = tick();
-ZenHub.Flags = {};
+Compkiller.DragBlacklist = {};
+Compkiller.IaDrag = false;
+Compkiller.LastDrag = tick();
+Compkiller.Flags = {};
 
-ZenHub.Lucide = {
+Compkiller.Lucide = {
 	['lucide-mouse-2'] = "rbxassetid://10088146939",
 	['lucide-internet'] = "rbxassetid://12785195438",
 	['lucide-earth'] = "rbxassetid://115986292591138",
@@ -1193,15 +1193,15 @@ ZenHub.Lucide = {
 	["lucide-zoom-out"] = "rbxassetid://10747384679",
 };
 
-function ZenHub:_GetIcon(name : string) : string
-	return ZenHub.Lucide['lucide-'..tostring(name)] or ZenHub.Lucide[name] or ZenHub.Lucide[tostring(name)] or name;
+function Compkiller:_GetIcon(name : string) : string
+	return Compkiller.Lucide['lucide-'..tostring(name)] or Compkiller.Lucide[name] or Compkiller.Lucide[tostring(name)] or name;
 end;
 
-function ZenHub:_RandomString() : string
+function Compkiller:_RandomString() : string
 	return string.char(math.random(64,102),math.random(64,102),math.random(64,102),math.random(64,102),math.random(64,102),math.random(64,102),math.random(64,102),math.random(64,102),math.random(64,102),math.random(64,102),math.random(64,102),math.random(64,102),math.random(64,102),math.random(64,102),math.random(64,102),math.random(64,102),math.random(64,102),math.random(64,102),math.random(64,102),math.random(64,102));	
 end;
 
-function ZenHub:_IsMouseOverFrame(Frame : Frame) : boolean
+function Compkiller:_IsMouseOverFrame(Frame : Frame) : boolean
 	if not Frame then
 		return;
 	end;
@@ -1213,12 +1213,12 @@ function ZenHub:_IsMouseOverFrame(Frame : Frame) : boolean
 	end;
 end;
 
-function ZenHub:_Rounding(num: number, numDecimalPlaces: number) : number
+function Compkiller:_Rounding(num: number, numDecimalPlaces: number) : number
 	local mult: number = 10 ^ (numDecimalPlaces or 0);
 	return math.floor(num * mult + 0.5) / mult;
 end;
 
-function ZenHub:_Animation(Self: Instance , Info: TweenInfo , Property :{[K] : V})
+function Compkiller:_Animation(Self: Instance , Info: TweenInfo , Property :{[K] : V})
 	local Tween = TweenService:Create(Self , Info or TweenInfo.new(0.25) , Property);
 
 	Tween:Play();
@@ -1226,7 +1226,7 @@ function ZenHub:_Animation(Self: Instance , Info: TweenInfo , Property :{[K] : V
 	return Tween;
 end;
 
-function ZenHub:_Input(Frame : Frame , Callback : () -> ()) : TextButton
+function Compkiller:_Input(Frame : Frame , Callback : () -> ()) : TextButton
 	local Button = Instance.new('TextButton',Frame);
 
 	Button.ZIndex = Frame.ZIndex + 10;
@@ -1241,7 +1241,7 @@ function ZenHub:_Input(Frame : Frame , Callback : () -> ()) : TextButton
 	return Button;
 end;
 
-function ZenHub:GetCalculatePosition(planePos: number, planeNormal: number, rayOrigin: number, rayDirection: number) : number
+function Compkiller:GetCalculatePosition(planePos: number, planeNormal: number, rayOrigin: number, rayDirection: number) : number
 	local n = planeNormal;
 	local d = rayDirection;
 	local v = rayOrigin - planePos;
@@ -1253,8 +1253,8 @@ function ZenHub:GetCalculatePosition(planePos: number, planeNormal: number, rayO
 	return rayOrigin + (a * rayDirection);
 end;
 
-function ZenHub:_Blur(element : Frame , WindowRemote) : RBXScriptSignal
-	local Part = Instance.new('Part',ZenHub.ArcylicParent);
+function Compkiller:_Blur(element : Frame , WindowRemote) : RBXScriptSignal
+	local Part = Instance.new('Part',Compkiller.ArcylicParent);
 	local DepthOfField = Instance.new('DepthOfFieldEffect',cloneref(game:GetService('Lighting')));
 	local BlockMesh = Instance.new("BlockMesh");
 	local userSettings = UserSettings():GetService("UserGameSettings");
@@ -1277,29 +1277,29 @@ function ZenHub:_Blur(element : Frame , WindowRemote) : RBXScriptSignal
 	DepthOfField.FocusDistance = 0;
 	DepthOfField.InFocusRadius = 1000;
 	DepthOfField.NearIntensity = 1;
-	DepthOfField.Name = ZenHub:_RandomString();
+	DepthOfField.Name = Compkiller:_RandomString();
 
-	Part.Name = ZenHub:_RandomString();
+	Part.Name = Compkiller:_RandomString();
 
 	local UpdateFunction = function()
 		local IsWindowActive = WindowRemote:GetValue();
 
 		if IsWindowActive then
 
-			ZenHub:_Animation(DepthOfField,TweenInfo.new(0.1),{
+			Compkiller:_Animation(DepthOfField,TweenInfo.new(0.1),{
 				NearIntensity = 1
 			})
 
-			ZenHub:_Animation(Part,TweenInfo.new(0.1),{
+			Compkiller:_Animation(Part,TweenInfo.new(0.1),{
 				Transparency = 0.97,
 				Size = Vector3.new(1, 1, 1) * 0.01;
 			})
 		else
-			ZenHub:_Animation(DepthOfField,TweenInfo.new(0.1),{
+			Compkiller:_Animation(DepthOfField,TweenInfo.new(0.1),{
 				NearIntensity = 0
 			})
 
-			ZenHub:_Animation(Part,TweenInfo.new(0.1),{
+			Compkiller:_Animation(Part,TweenInfo.new(0.1),{
 				Size = Vector3.zero,
 				Transparency = 1.5,
 			})
@@ -1318,8 +1318,8 @@ function ZenHub:_Blur(element : Frame , WindowRemote) : RBXScriptSignal
 
 			local planeNormal = CurrentCamera.CFrame.LookVector;
 
-			local pos0 = ZenHub:GetCalculatePosition(planeOrigin, planeNormal, ray0.Origin, ray0.Direction);
-			local pos1 = ZenHub:GetCalculatePosition(planeOrigin, planeNormal, ray1.Origin, ray1.Direction);
+			local pos0 = Compkiller:GetCalculatePosition(planeOrigin, planeNormal, ray0.Origin, ray0.Direction);
+			local pos1 = Compkiller:GetCalculatePosition(planeOrigin, planeNormal, ray1.Origin, ray1.Direction);
 
 			pos0 = CurrentCamera.CFrame:PointToObjectSpace(pos0);
 			pos1 = CurrentCamera.CFrame:PointToObjectSpace(pos1);
@@ -1357,26 +1357,26 @@ function ZenHub:_Blur(element : Frame , WindowRemote) : RBXScriptSignal
 	return rbxsignal;
 end;
 
-function ZenHub:_AddDragBlacklist(Frame: Frame)
+function Compkiller:_AddDragBlacklist(Frame: Frame)
 	local IsAdded = false;
 	local BASE_TIME = 0.01;
 
 	local SET_BLACKLIST = function(value)
-		local index = table.find(ZenHub.DragBlacklist , Frame);
+		local index = table.find(Compkiller.DragBlacklist , Frame);
 
 		if value and not Compkiller.IS_DRAG_MOVE then
 			if not index then
-				table.insert(ZenHub.DragBlacklist,Frame);
+				table.insert(Compkiller.DragBlacklist,Frame);
 			end;
 		else
 			if index then
-				table.remove(ZenHub.DragBlacklist,index);
+				table.remove(Compkiller.DragBlacklist,index);
 			end;
 		end;
 	end;
 
 	Frame.InputBegan:Connect(function(input)
-		if ZenHub:_IsMouseOverFrame(Frame) then
+		if Compkiller:_IsMouseOverFrame(Frame) then
 			SET_BLACKLIST(true)
 		end;
 	end);
@@ -1386,21 +1386,21 @@ function ZenHub:_AddDragBlacklist(Frame: Frame)
 	end);
 
 	UserInputService.InputChanged:Connect(function()
-		if not ZenHub:_IsMouseOverFrame(Frame) then
+		if not Compkiller:_IsMouseOverFrame(Frame) then
 			SET_BLACKLIST(false);
 		end
 	end);
 end;
 
-function ZenHub:_GetWindowFromElement(Element)
-	for i,v : ScreenGui in next , ZenHub.Windows do
+function Compkiller:_GetWindowFromElement(Element)
+	for i,v : ScreenGui in next , Compkiller.Windows do
 		if v and Element:IsDescendantOf(v) then
 			return v;
 		end;
 	end;
 end;
 
-function ZenHub.__SIGNAL(default)
+function Compkiller.__SIGNAL(default)
 	local Bindable = Instance.new('BindableEvent');
 
 	Bindable.Name = string.sub(tostring({}),7);
@@ -1438,7 +1438,7 @@ function ZenHub.__SIGNAL(default)
 	return Binds;
 end;
 
-function ZenHub:_Hover(Frame: Frame , OnHover: () -> any?, Release: () -> any?)
+function Compkiller:_Hover(Frame: Frame , OnHover: () -> any?, Release: () -> any?)
 	Frame.MouseEnter:Connect(OnHover);
 
 	Frame.MouseLeave:Connect(Release);
@@ -1456,7 +1456,7 @@ function Compkiller.__CONFIG(config , default)
 	return config;
 end;
 
-function ZenHub:Drag(InputFrame: Frame, MoveFrame: Frame, Speed : number)
+function Compkiller:Drag(InputFrame: Frame, MoveFrame: Frame, Speed : number)
 	local dragToggle: boolean = false;
 	local dragStart: Vector3 = nil;
 	local startPos: UDim2 = nil;
@@ -1467,55 +1467,55 @@ function ZenHub:Drag(InputFrame: Frame, MoveFrame: Frame, Speed : number)
 		local position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X,
 			startPos.Y.Scale, startPos.Y.Offset + delta.Y);
 
-		ZenHub:_Animation(MoveFrame,Tween,{
+		Compkiller:_Animation(MoveFrame,Tween,{
 			Position = position
 		});
 	end;
 
 	InputFrame.InputBegan:Connect(function(input)
-		if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) and #ZenHub.DragBlacklist <= 0 then 
+		if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) and #Compkiller.DragBlacklist <= 0 then 
 			dragToggle = true
 			dragStart = input.Position
 			startPos = MoveFrame.Position
 			input.Changed:Connect(function()
 				if input.UserInputState == Enum.UserInputState.End then
 					dragToggle = false;
-					ZenHub.IS_DRAG_MOVE = false;
+					Compkiller.IS_DRAG_MOVE = false;
 				end
 			end)
 		end
 
-		if not ZenHub.IsDrage and dragToggle then
-			ZenHub.LastDrag = tick();
+		if not Compkiller.IsDrage and dragToggle then
+			Compkiller.LastDrag = tick();
 		end;
 
-		ZenHub.IaDrag = dragToggle;
+		Compkiller.IaDrag = dragToggle;
 	end)
 
 	UserInputService.InputChanged:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch and #ZenHub.DragBlacklist <= 0 then
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch and #Compkiller.DragBlacklist <= 0 then
 			if dragToggle then
-				ZenHub.IS_DRAG_MOVE = true;
+				Compkiller.IS_DRAG_MOVE = true;
 				updateInput(input)
 			else
-				ZenHub.IS_DRAG_MOVE = false;
+				Compkiller.IS_DRAG_MOVE = false;
 			end
 		else
-			if #ZenHub.DragBlacklist > 0 then
+			if #Compkiller.DragBlacklist > 0 then
 				dragToggle = false
-				ZenHub.IS_DRAG_MOVE = false;
+				Compkiller.IS_DRAG_MOVE = false;
 			end
 		end
 
-		ZenHub.IaDrag = dragToggle;
+		Compkiller.IaDrag = dragToggle;
 	end);
 end;
 
-function ZenHub:_IsMobile()
+function Compkiller:_IsMobile()
 	return UserInputService.TouchEnabled;
 end;
 
-function ZenHub:_AddLinkValue(Name , Default , GlobalBlock , LinkValues , rep , Signal)
+function Compkiller:_AddLinkValue(Name , Default , GlobalBlock , LinkValues , rep , Signal)
 	if Name == "Toggle" then
 		local Toggle = Instance.new("Frame")
 		local UICorner = Instance.new("UICorner")
@@ -1532,7 +1532,7 @@ function ZenHub:_AddLinkValue(Name , Default , GlobalBlock , LinkValues , rep , 
 		Toggle.ZIndex = GlobalBlock.ZIndex + 1
 		Toggle.LayoutOrder = -#LinkValues:GetChildren();
 
-		table.insert(ZenHub.Elements.DropColor , {
+		table.insert(Compkiller.Elements.DropColor , {
 			Element = Toggle,
 			Property = "BackgroundColor3"
 		})
@@ -1540,10 +1540,10 @@ function ZenHub:_AddLinkValue(Name , Default , GlobalBlock , LinkValues , rep , 
 		UICorner.CornerRadius = UDim.new(1, 0)
 		UICorner.Parent = Toggle
 
-		UIStroke.Color = ZenHub.Colors.HighStrokeColor
+		UIStroke.Color = Compkiller.Colors.HighStrokeColor
 		UIStroke.Parent = Toggle
 
-		table.insert(ZenHub.Elements.HighStrokeColor,{
+		table.insert(Compkiller.Elements.HighStrokeColor,{
 			Element = UIStroke,
 			Property = "Color"
 		})
@@ -1551,7 +1551,7 @@ function ZenHub:_AddLinkValue(Name , Default , GlobalBlock , LinkValues , rep , 
 		ToggleValue.Name = "ToggleValue"
 		ToggleValue.Parent = Toggle
 		ToggleValue.AnchorPoint = Vector2.new(0.5, 0.5)
-		ToggleValue.BackgroundColor3 = ZenHub.Colors.SwitchColor
+		ToggleValue.BackgroundColor3 = Compkiller.Colors.SwitchColor
 		ToggleValue.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		ToggleValue.BorderSizePixel = 0
 		ToggleValue.Position = UDim2.new(0.25, 0, 0.5, 0)
@@ -1575,7 +1575,7 @@ function ZenHub:_AddLinkValue(Name , Default , GlobalBlock , LinkValues , rep , 
 				})
 
 				Compkiller:_Animation(Toggle,rep.Tween,{
-					BackgroundColor3 = ZenHub.Colors.Toggle
+					BackgroundColor3 = Compkiller.Colors.Toggle
 				})
 			else
 				Toggle:SetAttribute('Enabled',false);
@@ -1585,21 +1585,21 @@ function ZenHub:_AddLinkValue(Name , Default , GlobalBlock , LinkValues , rep , 
 				})
 
 				Compkiller:_Animation(Toggle,rep.Tween,{
-					BackgroundColor3 = ZenHub.Colors.DropColor
+					BackgroundColor3 = Compkiller.Colors.DropColor
 				})
 			end;
 		end;
 
-		local Input = ZenHub:_Input(Toggle);
+		local Input = Compkiller:_Input(Toggle);
 
-		ZenHub:_Hover(Input , function()
+		Compkiller:_Hover(Input , function()
 			if not Default then
-				ZenHub:_Animation(ToggleValue,rep.Tween,{
+				Compkiller:_Animation(ToggleValue,rep.Tween,{
 					Size = UDim2.new(0.6, 0, 0.6, 0)
 				})
 			end;
 		end , function()
-			ZenHub:_Animation(ToggleValue,rep.Tween,{
+			Compkiller:_Animation(ToggleValue,rep.Tween,{
 				Size = UDim2.new(0.550000012, 0, 0.550000012, 0)
 			})
 		end);
@@ -1608,29 +1608,29 @@ function ZenHub:_AddLinkValue(Name , Default , GlobalBlock , LinkValues , rep , 
 			if bool then
 				ToggleElement(Default,true);
 
-				ZenHub:_Animation(ToggleValue,rep.Tween,{
+				Compkiller:_Animation(ToggleValue,rep.Tween,{
 					BackgroundTransparency = 0
 				})
 
-				ZenHub:_Animation(Toggle,rep.Tween,{
+				Compkiller:_Animation(Toggle,rep.Tween,{
 					BackgroundTransparency = 0
 				})
 
-				ZenHub:_Animation(UIStroke,rep.Tween,{
+				Compkiller:_Animation(UIStroke,rep.Tween,{
 					Transparency = 0
 				})
 			else
 				ToggleElement(false,true);
 
-				ZenHub:_Animation(ToggleValue,rep.Tween,{
+				Compkiller:_Animation(ToggleValue,rep.Tween,{
 					BackgroundTransparency = 1
 				})
 
-				ZenHub:_Animation(Toggle,rep.Tween,{
+				Compkiller:_Animation(Toggle,rep.Tween,{
 					BackgroundTransparency = 1
 				})
 
-				ZenHub:_Animation(UIStroke,rep.Tween,{
+				Compkiller:_Animation(UIStroke,rep.Tween,{
 					Transparency = 1
 				})
 			end;
@@ -1674,10 +1674,10 @@ function ZenHub:_AddLinkValue(Name , Default , GlobalBlock , LinkValues , rep , 
 
 		UIScale.Parent = ColorFrame
 
-		UIStroke.Color = ZenHub.Colors.HighStrokeColor
+		UIStroke.Color = Compkiller.Colors.HighStrokeColor
 		UIStroke.Parent = ColorFrame
 
-		table.insert(ZenHub.Elements.HighStrokeColor,{
+		table.insert(Compkiller.Elements.HighStrokeColor,{
 			Element = UIStroke,
 			Property = "Color"
 		})
@@ -1687,33 +1687,33 @@ function ZenHub:_AddLinkValue(Name , Default , GlobalBlock , LinkValues , rep , 
 
 		Signal:Connect(function(bool)
 			if bool then
-				ZenHub:_Animation(ColorFrame,TweenInfo.new(0.15),{
+				Compkiller:_Animation(ColorFrame,TweenInfo.new(0.15),{
 					BackgroundTransparency = 0,
 				})
 
-				ZenHub:_Animation(UIStroke,TweenInfo.new(0.15),{
+				Compkiller:_Animation(UIStroke,TweenInfo.new(0.15),{
 					Transparency = 0,
 				})
 			else
-				ZenHub:_Animation(ColorFrame,TweenInfo.new(0.15),{
+				Compkiller:_Animation(ColorFrame,TweenInfo.new(0.15),{
 					BackgroundTransparency = 1,
 				})
 
-				ZenHub:_Animation(UIStroke,TweenInfo.new(0.15),{
+				Compkiller:_Animation(UIStroke,TweenInfo.new(0.15),{
 					Transparency = 1,
 				})
 			end;
 		end)
 
-		ZenHub:_Hover(ColorPicker, function()
+		Compkiller:_Hover(ColorPicker, function()
 			if Signal:GetValue() then
-				ZenHub:_Animation(UIScale,TweenInfo.new(0.35),{
+				Compkiller:_Animation(UIScale,TweenInfo.new(0.35),{
 					Scale = 1.2
 				})
 			end;
 		end , function()
 			if Signal:GetValue() then
-				ZenHub:_Animation(UIScale,TweenInfo.new(0.35),{
+				Compkiller:_Animation(UIScale,TweenInfo.new(0.35),{
 					Scale = 1
 				})
 			end;
@@ -1775,7 +1775,7 @@ function ZenHub:_AddLinkValue(Name , Default , GlobalBlock , LinkValues , rep , 
 
 		Keybind.Name = "Keybind"
 		Keybind.Parent = LinkValues
-		Keybind.BackgroundColor3 = ZenHub.Colors.DropColor
+		Keybind.BackgroundColor3 = Compkiller.Colors.DropColor
 		Keybind.BackgroundTransparency = 0.8
 		Keybind.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		Keybind.BorderSizePixel = 0
@@ -1785,7 +1785,7 @@ function ZenHub:_AddLinkValue(Name , Default , GlobalBlock , LinkValues , rep , 
 		Keybind.LayoutOrder = -#LinkValues:GetChildren();
 
 
-		table.insert(ZenHub.Elements.DropColor , {
+		table.insert(Compkiller.Elements.DropColor , {
 			Element = Keybind,
 			Property = "BackgroundColor3"
 		})
@@ -1793,10 +1793,10 @@ function ZenHub:_AddLinkValue(Name , Default , GlobalBlock , LinkValues , rep , 
 		UICorner.CornerRadius = UDim.new(0, 3)
 		UICorner.Parent = Keybind
 
-		UIStroke.Color = ZenHub.Colors.HighStrokeColor
+		UIStroke.Color = Compkiller.Colors.HighStrokeColor
 		UIStroke.Parent = Keybind
 
-		table.insert(ZenHub.Elements.HighStrokeColor,{
+		table.insert(Compkiller.Elements.HighStrokeColor,{
 			Element = UIStroke,
 			Property = "Color"
 		})
@@ -1811,11 +1811,11 @@ function ZenHub:_AddLinkValue(Name , Default , GlobalBlock , LinkValues , rep , 
 		TextLabel.ZIndex = GlobalBlock.ZIndex + 3
 		TextLabel.Font = Enum.Font.Gotham
 		TextLabel.Text = GetItem(Default or "None");
-		TextLabel.TextColor3 = ZenHub.Colors.SwitchColor
+		TextLabel.TextColor3 = Compkiller.Colors.SwitchColor
 		TextLabel.TextSize = 12.000
 		TextLabel.TextTransparency = 0.200
 
-		table.insert(ZenHub.Elements.SwitchColor,{
+		table.insert(Compkiller.Elements.SwitchColor,{
 			Element = TextLabel,
 			Property = "TextColor3"
 		});
@@ -1823,7 +1823,7 @@ function ZenHub:_AddLinkValue(Name , Default , GlobalBlock , LinkValues , rep , 
 		local Update = function()
 			local size = TextService:GetTextSize(TextLabel.Text,TextLabel.TextSize,TextLabel.Font,Vector2.new(math.huge,math.huge));
 
-			ZenHub:_Animation(Keybind,TweenInfo.new(0.1),{
+			Compkiller:_Animation(Keybind,TweenInfo.new(0.1),{
 				Size = UDim2.new(0, size.X + 5, 0, 16)
 			});
 		end;
@@ -1832,27 +1832,27 @@ function ZenHub:_AddLinkValue(Name , Default , GlobalBlock , LinkValues , rep , 
 
 		local ToggleUI = function(bool)
 			if bool then
-				ZenHub:_Animation(Keybind,rep.Tween,{
+				Compkiller:_Animation(Keybind,rep.Tween,{
 					BackgroundTransparency = 0.8
 				})
 
-				ZenHub:_Animation(UIStroke,rep.Tween,{
+				Compkiller:_Animation(UIStroke,rep.Tween,{
 					Transparency = 0
 				})
 
-				ZenHub:_Animation(TextLabel,rep.Tween,{
+				Compkiller:_Animation(TextLabel,rep.Tween,{
 					TextTransparency = 0.200
 				})
 			else
-				ZenHub:_Animation(Keybind,rep.Tween,{
+				Compkiller:_Animation(Keybind,rep.Tween,{
 					BackgroundTransparency = 1
 				})
 
-				ZenHub:_Animation(UIStroke,rep.Tween,{
+				Compkiller:_Animation(UIStroke,rep.Tween,{
 					Transparency = 1
 				})
 
-				ZenHub:_Animation(TextLabel,rep.Tween,{
+				Compkiller:_Animation(TextLabel,rep.Tween,{
 					TextTransparency = 1
 				})
 			end;
@@ -1892,9 +1892,9 @@ function ZenHub:_AddLinkValue(Name , Default , GlobalBlock , LinkValues , rep , 
 		BlockText.Name = "BlockText"
 		BlockText.Parent = InfoButton
 		BlockText.AnchorPoint = Vector2.new(0, 0)
-		BlockText.BackgroundColor3 = ZenHub.Colors.BlockColor
+		BlockText.BackgroundColor3 = Compkiller.Colors.BlockColor
 
-		table.insert(ZenHub.Elements.BlockColor , {
+		table.insert(Compkiller.Elements.BlockColor , {
 			Element = BlockText,
 			Property = "BackgroundColor3"
 		});
@@ -1906,21 +1906,21 @@ function ZenHub:_AddLinkValue(Name , Default , GlobalBlock , LinkValues , rep , 
 		BlockText.ZIndex = GlobalBlock.ZIndex + 26
 		BlockText.Font = Enum.Font.GothamMedium
 		BlockText.Text = " "
-		BlockText.TextColor3 = ZenHub.Colors.SwitchColor
+		BlockText.TextColor3 = Compkiller.Colors.SwitchColor
 		BlockText.TextSize = 13.000
 		BlockText.TextTransparency = 0.300
 		BlockText.TextXAlignment = Enum.TextXAlignment.Left
 
-		table.insert(ZenHub.Elements.SwitchColor,{
+		table.insert(Compkiller.Elements.SwitchColor,{
 			Element = BlockText,
 			Property = "TextColor3"
 		});
 
-		UIStroke.Color = ZenHub.Colors.StrokeColor
+		UIStroke.Color = Compkiller.Colors.StrokeColor
 		UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 		UIStroke.Parent = BlockText
 
-		table.insert(ZenHub.Elements.StrokeColor,{
+		table.insert(Compkiller.Elements.StrokeColor,{
 			Element = UIStroke,
 			Property = "Color"
 		});
@@ -1930,25 +1930,25 @@ function ZenHub:_AddLinkValue(Name , Default , GlobalBlock , LinkValues , rep , 
 
 		Signal:Connect(function(bool)
 			if bool then
-				ZenHub:_Animation(InfoButton,TweenInfo.new(0.15),{
+				Compkiller:_Animation(InfoButton,TweenInfo.new(0.15),{
 					ImageTransparency = 0.500
 				})
 			else
-				ZenHub:_Animation(InfoButton,TweenInfo.new(0.15),{
+				Compkiller:_Animation(InfoButton,TweenInfo.new(0.15),{
 					ImageTransparency = 1
 				})
 			end;
 		end)
 
-		ZenHub:_Hover(InfoButton, function()
+		Compkiller:_Hover(InfoButton, function()
 			if Signal:GetValue() then
-				ZenHub:_Animation(InfoButton,TweenInfo.new(0.15),{
+				Compkiller:_Animation(InfoButton,TweenInfo.new(0.15),{
 					ImageTransparency = 0.1
 				})
 			end;
 		end , function()
 			if Signal:GetValue() then
-				ZenHub:_Animation(InfoButton,TweenInfo.new(0.15),{
+				Compkiller:_Animation(InfoButton,TweenInfo.new(0.15),{
 					ImageTransparency = 0.500
 				})
 			end;
@@ -1979,17 +1979,17 @@ function ZenHub:_AddLinkValue(Name , Default , GlobalBlock , LinkValues , rep , 
 
 		Signal:Connect(function(bool)
 			if bool then
-				ZenHub:_Animation(OptionButton,TweenInfo.new(0.15),{
+				Compkiller:_Animation(OptionButton,TweenInfo.new(0.15),{
 					ImageTransparency = 0.500
 				})
 			else
-				ZenHub:_Animation(OptionButton,TweenInfo.new(0.15),{
+				Compkiller:_Animation(OptionButton,TweenInfo.new(0.15),{
 					ImageTransparency = 1
 				})
 			end;
 		end)
 
-		ZenHub:_Hover(OptionButton, function()
+		Compkiller:_Hover(OptionButton, function()
 			if Signal:GetValue() then
 				Compkiller:_Animation(OptionButton,TweenInfo.new(0.15),{
 					ImageTransparency = 0.1
@@ -1997,7 +1997,7 @@ function ZenHub:_AddLinkValue(Name , Default , GlobalBlock , LinkValues , rep , 
 			end;
 		end , function()
 			if Signal:GetValue() then
-				ZenHub:_Animation(OptionButton,TweenInfo.new(0.15),{
+				Compkiller:_Animation(OptionButton,TweenInfo.new(0.15),{
 					ImageTransparency = 0.500
 				})
 			end;
@@ -2007,15 +2007,15 @@ function ZenHub:_AddLinkValue(Name , Default , GlobalBlock , LinkValues , rep , 
 	end;
 end;
 
-function ZenHub:_CreateBlock(Signal)
+function Compkiller:_CreateBlock(Signal)
 	local GlobalBlock = Instance.new("Frame")
 	local BlockText = Instance.new("TextLabel")
 	local LinkValues = Instance.new("Frame")
 	local UIListLayout = Instance.new("UIListLayout")
 	local BlockLine = Instance.new("Frame")
 
-	if ZenHub:_IsMobile() then
-		ZenHub:_AddDragBlacklist(GlobalBlock);
+	if Compkiller:_IsMobile() then
+		Compkiller:_AddDragBlacklist(GlobalBlock);
 	end;
 
 	GlobalBlock.Name = "GlobalBlock"
@@ -2036,12 +2036,12 @@ function ZenHub:_CreateBlock(Signal)
 	BlockText.ZIndex = 10
 	BlockText.Font = Enum.Font.GothamMedium
 	BlockText.Text = "Block"
-	BlockText.TextColor3 = ZenHub.Colors.SwitchColor
+	BlockText.TextColor3 = Compkiller.Colors.SwitchColor
 	BlockText.TextSize = 14.000
 	BlockText.TextTransparency = 0.300
 	BlockText.TextXAlignment = Enum.TextXAlignment.Left
 
-	table.insert(ZenHub.Elements.SwitchColor , {
+	table.insert(Compkiller.Elements.SwitchColor , {
 		Element = BlockText,
 		Property = 'TextColor3'
 	});
@@ -2066,7 +2066,7 @@ function ZenHub:_CreateBlock(Signal)
 	BlockLine.Name = "BlockLine"
 	BlockLine.Parent = GlobalBlock
 	BlockLine.AnchorPoint = Vector2.new(0.5, 1)
-	BlockLine.BackgroundColor3 = ZenHub.Colors.LineColor
+	BlockLine.BackgroundColor3 = Compkiller.Colors.LineColor
 	BlockLine.BackgroundTransparency = 0.500
 	BlockLine.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	BlockLine.BorderSizePixel = 0
@@ -2074,7 +2074,7 @@ function ZenHub:_CreateBlock(Signal)
 	BlockLine.Size = UDim2.new(1, -26, 0, 1)
 	BlockLine.ZIndex = 12
 
-	table.insert(ZenHub.Elements.LineColor,{
+	table.insert(Compkiller.Elements.LineColor,{
 		Element = BlockLine,
 		Property = "BackgroundColor3"
 	});
@@ -2090,13 +2090,13 @@ function ZenHub:_CreateBlock(Signal)
 	end;
 
 	function rep:SetTextColor(Color)
-		local oldIndex = table.find(ZenHub.Elements.SwitchColor , BlockText);
+		local oldIndex = table.find(Compkiller.Elements.SwitchColor , BlockText);
 
-		table.remove(ZenHub.Elements.SwitchColor , oldIndex);
+		table.remove(Compkiller.Elements.SwitchColor , oldIndex);
 
 		BlockText.TextColor3 = Color;
 
-		table.insert(ZenHub.Elements.Risky , {
+		table.insert(Compkiller.Elements.Risky , {
 			Element = BlockText,
 			Property = 'TextColor3'
 		});
@@ -2110,7 +2110,7 @@ function ZenHub:_CreateBlock(Signal)
 	function rep:SetTransparency(num)
 		rep.TextTransparency = num;
 
-		ZenHub:_Animation(BlockText,TweenInfo.new(0.3),{
+		Compkiller:_Animation(BlockText,TweenInfo.new(0.3),{
 			TextTransparency = rep.TextTransparency
 		});
 	end;
@@ -2128,32 +2128,32 @@ function ZenHub:_CreateBlock(Signal)
 
 	function rep:SetVisible(bool)
 		if bool then
-			ZenHub:_Animation(BlockText,rep.Tween,{
+			Compkiller:_Animation(BlockText,rep.Tween,{
 				TextTransparency = rep.TextTransparency
 			});
 
-			ZenHub:_Animation(BlockLine,rep.Tween,{
+			Compkiller:_Animation(BlockLine,rep.Tween,{
 				BackgroundTransparency = 0.500
 			});
 		else
-			ZenHub:_Animation(BlockText,rep.Tween,{
+			Compkiller:_Animation(BlockText,rep.Tween,{
 				TextTransparency = 1
 			});
 
-			ZenHub:_Animation(BlockLine,rep.Tween,{
+			Compkiller:_Animation(BlockLine,rep.Tween,{
 				BackgroundTransparency = 1
 			});
 		end;
 	end;
 
 	function rep:AddLink(Name , Default)
-		return ZenHub:_AddLinkValue(Name , Default , GlobalBlock , LinkValues , rep , Signal);
+		return Compkiller:_AddLinkValue(Name , Default , GlobalBlock , LinkValues , rep , Signal);
 	end;
 
 	return rep;
 end;
 
-function ZenHub:_AddColorPickerPanel(Button: ImageButton , Callback: (Color: Color3) -> any?)
+function Compkiller:_AddColorPickerPanel(Button: ImageButton , Callback: (Color: Color3) -> any?)
 	local Window = Compkiller:_GetWindowFromElement(Button);
 	local BaseZ_Index = math.random(1,15) * 100;
 
@@ -2191,7 +2191,7 @@ function ZenHub:_AddColorPickerPanel(Button: ImageButton , Callback: (Color: Col
 	ColorPickerWindow.Name = "ColorPickerWindow"
 	ColorPickerWindow.Parent = Window
 	ColorPickerWindow.BackgroundColor3 = Compkiller.Colors.BlockBackground
-	ColorPickerWindow.BorderColor3 = Color3.fromRGB(30, 15, 50)
+	ColorPickerWindow.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	ColorPickerWindow.BorderSizePixel = 0
 	ColorPickerWindow.Position = UDim2.new(123, 0, 123, 0)
 	ColorPickerWindow.Size = UDim2.new(0, 175, 0, 200)
@@ -2199,16 +2199,16 @@ function ZenHub:_AddColorPickerPanel(Button: ImageButton , Callback: (Color: Col
 	ColorPickerWindow.AnchorPoint = Vector2.new(0.5,0)
 	ColorPickerWindow.Active = true;
 
-	table.insert(ZenHub.Elements.BlockBackground,{
+	table.insert(Compkiller.Elements.BlockBackground,{
 		Element = ColorPickerWindow,
 		Property = "BackgroundColor3"
 	});
 
 	Compkiller:_AddDragBlacklist(ColorPickerWindow)
 
-	UIStroke.Color = ZenHub.Colors.HighStrokeColor
+	UIStroke.Color = Compkiller.Colors.HighStrokeColor
 	UIStroke.Parent = ColorPickerWindow
-	table.insert(ZenHub.Elements.HighStrokeColor , {
+	table.insert(Compkiller.Elements.HighStrokeColor , {
 		Element = UIStroke,
 		Property = "Color"
 	})
@@ -2217,8 +2217,8 @@ function ZenHub:_AddColorPickerPanel(Button: ImageButton , Callback: (Color: Col
 
 	ColorPickBox.Name = "ColorPickBox"
 	ColorPickBox.Parent = ColorPickerWindow
-	ColorPickBox.BackgroundColor3 = Color3.fromRGB(30, 15, 50)
-	ColorPickBox.BorderColor3 = Color3.fromRGB(30, 15, 50)
+	ColorPickBox.BackgroundColor3 = Color3.fromRGB(39, 255, 35)
+	ColorPickBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	ColorPickBox.BorderSizePixel = 0
 	ColorPickBox.Position = UDim2.new(0, 7, 0, 7)
 	ColorPickBox.Size = UDim2.new(0, 145, 0, 145)
@@ -2227,7 +2227,7 @@ function ZenHub:_AddColorPickerPanel(Button: ImageButton , Callback: (Color: Col
 
 	MouseMovement.Name = "MouseMovement"
 	MouseMovement.Parent = ColorPickBox
-	MouseMovement.BackgroundColor3 = Color3.fromRGB(30, 15, 50)
+	MouseMovement.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	MouseMovement.BackgroundTransparency = 1.000
 	MouseMovement.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	MouseMovement.BorderSizePixel = 0
@@ -2363,14 +2363,14 @@ function ZenHub:_AddColorPickerPanel(Button: ImageButton , Callback: (Color: Col
 	HexFrame.Name = "HexFrame"
 	HexFrame.Parent = ColorPickerWindow
 	HexFrame.AnchorPoint = Vector2.new(0.5, 1)
-	HexFrame.BackgroundColor3 = ZenHub.Colors.BlockColor
+	HexFrame.BackgroundColor3 = Compkiller.Colors.BlockColor
 	HexFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	HexFrame.BorderSizePixel = 0
 	HexFrame.Position = UDim2.new(0.5, 0, 1, -5)
 	HexFrame.Size = UDim2.new(1, -16, 0, 20)
 	HexFrame.ZIndex = BaseZ_Index + 205
 
-	table.insert(ZenHub.Elements.BlockColor,{
+	table.insert(Compkiller.Elements.BlockColor,{
 		Element = HexFrame,
 		Property = "BackgroundColor3"
 	});
@@ -2378,10 +2378,10 @@ function ZenHub:_AddColorPickerPanel(Button: ImageButton , Callback: (Color: Col
 	UICorner_6.CornerRadius = UDim.new(0, 4)
 	UICorner_6.Parent = HexFrame
 
-	UIStroke_8.Color = ZenHub.Colors.HighStrokeColor
+	UIStroke_8.Color = Compkiller.Colors.HighStrokeColor
 	UIStroke_8.Parent = HexFrame
 
-	table.insert(ZenHub.Elements.HighStrokeColor,{
+	table.insert(Compkiller.Elements.HighStrokeColor,{
 		Element = UIStroke_8,
 		Property = "Color"
 	});
@@ -2396,11 +2396,11 @@ function ZenHub:_AddColorPickerPanel(Button: ImageButton , Callback: (Color: Col
 	TextLabel.ZIndex = BaseZ_Index + 206
 	TextLabel.Font = Enum.Font.Gotham
 	TextLabel.Text = "#FFFFFFF"
-	TextLabel.TextColor3 = ZenHub.Colors.SwitchColor
+	TextLabel.TextColor3 = Compkiller.Colors.SwitchColor
 	TextLabel.TextSize = 13.000
 	TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 
-	table.insert(ZenHub.Elements.SwitchColor , {
+	table.insert(Compkiller.Elements.SwitchColor , {
 		Element = TextLabel,
 		Property = 'TextColor3'
 	});
@@ -2442,109 +2442,109 @@ function ZenHub:_AddColorPickerPanel(Button: ImageButton , Callback: (Color: Col
 				ColorPickerWindow.Position = DropPosition
 			end;
 
-			ZenHub:_Animation(ColorPickerWindow,Tween2,{
+			Compkiller:_Animation(ColorPickerWindow,Tween2,{
 				BackgroundTransparency = 0,
 				Size = UDim2.new(0, 175, 0, 200)
 			});
 
-			ZenHub:_Animation(ColorPickerWindow,Tween,{
+			Compkiller:_Animation(ColorPickerWindow,Tween,{
 				Position = MainPosition,
 			});
 
-			ZenHub:_Animation(UIStroke_8,Tween,{
+			Compkiller:_Animation(UIStroke_8,Tween,{
 				Transparency = 0
 			});
 
-			ZenHub:_Animation(UIStroke_7,Tween,{
+			Compkiller:_Animation(UIStroke_7,Tween,{
 				Transparency = 0.5
 			});
 
-			ZenHub:_Animation(UIStroke_6,Tween,{
+			Compkiller:_Animation(UIStroke_6,Tween,{
 				Transparency = 0
 			});
 
-			ZenHub:_Animation(UIStroke_5,Tween,{
+			Compkiller:_Animation(UIStroke_5,Tween,{
 				Transparency = 0
 			});
 
-			ZenHub:_Animation(UIStroke_4,Tween,{
+			Compkiller:_Animation(UIStroke_4,Tween,{
 				Transparency = 0
 			});
 
-			ZenHub:_Animation(UIStroke_3,Tween,{
+			Compkiller:_Animation(UIStroke_3,Tween,{
 				Transparency = 0
 			});
 
-			ZenHub:_Animation(UIStroke_2,Tween,{
+			Compkiller:_Animation(UIStroke_2,Tween,{
 				Transparency = 0
 			});
 
-			ZenHub:_Animation(UIStroke,Tween,{
+			Compkiller:_Animation(UIStroke,Tween,{
 				Transparency = 0
 			});
 
-			ZenHub:_Animation(ColorPickBox,Tween,{
+			Compkiller:_Animation(ColorPickBox,Tween,{
 				BackgroundTransparency = 0,
 				ImageTransparency = 0
 			});
 
-			ZenHub:_Animation(MouseMovement,Tween,{
+			Compkiller:_Animation(MouseMovement,Tween,{
 				ImageTransparency = 0
 			});
 
-			ZenHub:_Animation(ColorOpc,Tween,{
+			Compkiller:_Animation(ColorOpc,Tween,{
 				BackgroundTransparency = 0
 			});
 
-			ZenHub:_Animation(TransparentImage,Tween,{
+			Compkiller:_Animation(TransparentImage,Tween,{
 				ImageTransparency = 0
 			});
 
-			ZenHub:_Animation(Left,Tween,{
+			Compkiller:_Animation(Left,Tween,{
 				BackgroundTransparency = 0
 			});
 
-			ZenHub:_Animation(Left_2,Tween,{
+			Compkiller:_Animation(Left_2,Tween,{
 				BackgroundTransparency = 0
 			});
 
-			ZenHub:_Animation(Right,Tween,{
+			Compkiller:_Animation(Right,Tween,{
 				BackgroundTransparency = 0
 			});
 
-			ZenHub:_Animation(Right_2,Tween,{
+			Compkiller:_Animation(Right_2,Tween,{
 				BackgroundTransparency = 0
 			});
 
-			ZenHub:_Animation(ColorRedGreenBlue,Tween,{
+			Compkiller:_Animation(ColorRedGreenBlue,Tween,{
 				BackgroundTransparency = 0
 			});
 
-			ZenHub:_Animation(HexFrame,Tween,{
+			Compkiller:_Animation(HexFrame,Tween,{
 				BackgroundTransparency = 0
 			});
 
-			ZenHub:_Animation(TextLabel,Tween,{
+			Compkiller:_Animation(TextLabel,Tween,{
 				TextTransparency = 0
 			});
 		else
-			ZenHub:_Animation(UIStroke_8,Tween,{
+			Compkiller:_Animation(UIStroke_8,Tween,{
 				Transparency = 1
 			});
 
-			ZenHub:_Animation(UIStroke_7,Tween,{
+			Compkiller:_Animation(UIStroke_7,Tween,{
 				Transparency = 1
 			});
 
-			ZenHub:_Animation(UIStroke_6,Tween,{
+			Compkiller:_Animation(UIStroke_6,Tween,{
 				Transparency = 1
 			});
 
-			ZenHub:_Animation(UIStroke_5,Tween,{
+			Compkiller:_Animation(UIStroke_5,Tween,{
 				Transparency = 1
 			});
 
-			ZenHub:_Animation(UIStroke_4,Tween,{
+			Compkiller:_Animation(UIStroke_4,Tween,{
 				Transparency = 1
 			});
 
@@ -2552,64 +2552,64 @@ function ZenHub:_AddColorPickerPanel(Button: ImageButton , Callback: (Color: Col
 				Transparency = 1
 			});
 
-			ZenHub:_Animation(UIStroke_2,Tween,{
+			Compkiller:_Animation(UIStroke_2,Tween,{
 				Transparency = 1
 			});
 
-			ZenHub:_Animation(UIStroke,Tween,{
+			Compkiller:_Animation(UIStroke,Tween,{
 				Transparency = 1
 			});
 
-			ZenHub:_Animation(ColorPickerWindow,Tween2,{
+			Compkiller:_Animation(ColorPickerWindow,Tween2,{
 				BackgroundTransparency = 1,
 			});
 
-			ZenHub:_Animation(ColorPickerWindow,Tween,{
+			Compkiller:_Animation(ColorPickerWindow,Tween,{
 				Position = DropPosition,
 			});
 
-			ZenHub:_Animation(ColorPickBox,Tween,{
+			Compkiller:_Animation(ColorPickBox,Tween,{
 				BackgroundTransparency = 1,
 				ImageTransparency = 1
 			});
 
-			ZenHub:_Animation(MouseMovement,Tween,{
+			Compkiller:_Animation(MouseMovement,Tween,{
 				ImageTransparency = 1
 			});
 
-			ZenHub:_Animation(ColorOpc,Tween,{
+			Compkiller:_Animation(ColorOpc,Tween,{
 				BackgroundTransparency = 1
 			});
 
-			ZenHub:_Animation(TransparentImage,Tween,{
+			Compkiller:_Animation(TransparentImage,Tween,{
 				ImageTransparency = 1
 			});
 
-			ZenHub:_Animation(Left,Tween,{
+			Compkiller:_Animation(Left,Tween,{
 				BackgroundTransparency = 1
 			});
 
-			ZenHub:_Animation(Left_2,Tween,{
+			Compkiller:_Animation(Left_2,Tween,{
 				BackgroundTransparency = 1
 			});
 
-			ZenHub:_Animation(Right,Tween,{
+			Compkiller:_Animation(Right,Tween,{
 				BackgroundTransparency = 1
 			});
 
-			ZenHub:_Animation(Right_2,Tween,{
+			Compkiller:_Animation(Right_2,Tween,{
 				BackgroundTransparency = 1
 			});
 
-			ZenHub:_Animation(ColorRedGreenBlue,Tween,{
+			Compkiller:_Animation(ColorRedGreenBlue,Tween,{
 				BackgroundTransparency = 1
 			});
 
-			ZenHub:_Animation(HexFrame,Tween,{
+			Compkiller:_Animation(HexFrame,Tween,{
 				BackgroundTransparency = 1
 			});
 
-			ZenHub:_Animation(TextLabel,Tween,{
+			Compkiller:_Animation(TextLabel,Tween,{
 				TextTransparency = 1
 			});
 		end;
@@ -2631,23 +2631,23 @@ function ZenHub:_AddColorPickerPanel(Button: ImageButton , Callback: (Color: Col
 		local MainColor = Color3.fromHSV(H , S , 1);
 		local RealColor = Color3.fromHSV(H , S , V);
 
-		ZenHub:_Animation(ColorPickBox,TweenInfo.new(0.2),{
+		Compkiller:_Animation(ColorPickBox,TweenInfo.new(0.2),{
 			BackgroundColor3 = Color3.fromHSV(H , 1 , 1)
 		});
 
-		ZenHub:_Animation(ColorOpc,TweenInfo.new(0.2),{
+		Compkiller:_Animation(ColorOpc,TweenInfo.new(0.2),{
 			BackgroundColor3 = RealColor
 		});
 
-		ZenHub:_Animation(MouseMovement,TweenInfo.new(0.2),{
+		Compkiller:_Animation(MouseMovement,TweenInfo.new(0.2),{
 			Position = UDim2.fromScale(S , 1 - V)
 		});
 
-		ZenHub:_Animation(ColorOptSlide,TweenInfo.new(0.2),{
+		Compkiller:_Animation(ColorOptSlide,TweenInfo.new(0.2),{
 			Position = UDim2.new(Transparency ,0 , 0.5 ,0)
 		});
 
-		ZenHub:_Animation(ColorRGBSlide,TweenInfo.new(0.2),{
+		Compkiller:_Animation(ColorRGBSlide,TweenInfo.new(0.2),{
 			Position = UDim2.new(0.5 ,0 , H ,0)
 		});
 
@@ -2692,7 +2692,7 @@ function ZenHub:_AddColorPickerPanel(Button: ImageButton , Callback: (Color: Col
 
 	UserInputService.InputBegan:Connect(function(Input)
 		if Input.UserInputType == Enum.UserInputType.MouseButton1 or Input.UserInputType == Enum.UserInputType.Touch then
-			if not ZenHub:_IsMouseOverFrame(ColorPickerWindow) then
+			if not Compkiller:_IsMouseOverFrame(ColorPickerWindow) then
 				ToggleUI(false);
 			end;
 		end;
@@ -2757,19 +2757,19 @@ function ZenHub:_AddColorPickerPanel(Button: ImageButton , Callback: (Color: Col
 	return Args;
 end;
 
-function ZenHub:_AddPropertyEvent(Target: Frame , Callback: (boolean) -> any)
+function Compkiller:_AddPropertyEvent(Target: Frame , Callback: (boolean) -> any)
 	Target:GetPropertyChangedSignal('BackgroundTransparency'):Connect(function()
 		Callback(Target.BackgroundTransparency <= 0.9)
 	end)
 end;
 
-function ZenHub:_LoadOption(Value , TabSignal)
+function Compkiller:_LoadOption(Value , TabSignal)
 	local Args = {};
-	local Window = ZenHub:_GetWindowFromElement(Value.Root);
+	local Window = Compkiller:_GetWindowFromElement(Value.Root);
 	local Tween = TweenInfo.new(0.3,Enum.EasingStyle.Quint);
 
 	function Args:AddKeybind(Config: MiniKeybind)
-		Config = ZenHub.__CONFIG(Config,{
+		Config = Compkiller.__CONFIG(Config,{
 			Name = "Keybind",
 			Default = nil,
 			Flag = nil,
@@ -2785,7 +2785,7 @@ function ZenHub:_LoadOption(Value , TabSignal)
 			return Config.Blacklist and (Config.Blacklist[v] or table.find(Config.Blacklist,v))
 		end;
 
-		ZenHub:_Input(Keybind.Root,function()
+		Compkiller:_Input(Keybind.Root,function()
 			if IsBinding then
 				return;
 			end;
@@ -2836,14 +2836,14 @@ function ZenHub:_LoadOption(Value , TabSignal)
 		end;
 
 		if Config.Flag then
-			ZenHub.Flags[Config.Flag] = Args;
+			Compkiller.Flags[Config.Flag] = Args;
 		end;
 
 		return Args;
 	end;
 
 	function Args:AddHelper(Config: Helper)
-		Config = ZenHub.__CONFIG(Config,{
+		Config = Compkiller.__CONFIG(Config,{
 			Text = "Information."
 		});
 
@@ -2869,7 +2869,7 @@ function ZenHub:_LoadOption(Value , TabSignal)
 
 			local scale = TextService:GetTextSize(Helper.Text.Text,Helper.Text.TextSize,Helper.Text.Font,Vector2.new(math.huge,math.huge));
 
-			ZenHub:_Animation(Helper.Text , TweenInfo.new(0.15), {
+			Compkiller:_Animation(Helper.Text , TweenInfo.new(0.15), {
 				Size = UDim2.fromOffset(scale.X + 50, scale.Y + 5)
 			})
 
@@ -2879,13 +2879,13 @@ function ZenHub:_LoadOption(Value , TabSignal)
 		local Release = function()
 			local scale = Update()
 
-			ZenHub:_Animation(Helper.Text,TweenInfo.new(0.15),{
+			Compkiller:_Animation(Helper.Text,TweenInfo.new(0.15),{
 				TextTransparency = 1,
 				BackgroundTransparency = 1,
 				Position = UDim2.fromOffset(Button.AbsolutePosition.X,Button.AbsolutePosition.Y + (45))
 			});
 
-			ZenHub:_Animation(Helper.UIStroke,TweenInfo.new(0.15),{
+			Compkiller:_Animation(Helper.UIStroke,TweenInfo.new(0.15),{
 				Transparency = 1
 			});
 		end;
@@ -2897,19 +2897,19 @@ function ZenHub:_LoadOption(Value , TabSignal)
 				Helper.Text.Position = UDim2.fromOffset(Button.AbsolutePosition.X,Button.AbsolutePosition.Y + (45))
 			end;
 
-			ZenHub:_Animation(Helper.Text,TweenInfo.new(0.15),{
+			Compkiller:_Animation(Helper.Text,TweenInfo.new(0.15),{
 				TextTransparency = 0.35,
 				BackgroundTransparency = 0,
 				Position = UDim2.fromOffset(Button.AbsolutePosition.X,Button.AbsolutePosition.Y + (40 - (scale.Y / 2)))
 			});
 
-			ZenHub:_Animation(Helper.UIStroke,TweenInfo.new(0.15),{
+			Compkiller:_Animation(Helper.UIStroke,TweenInfo.new(0.15),{
 				Transparency = 0
 			});
 
 		end;
 
-		ZenHub:_Hover(Button,  Hold, Release);
+		Compkiller:_Hover(Button,  Hold, Release);
 
 		Release();
 
@@ -2923,7 +2923,7 @@ function ZenHub:_LoadOption(Value , TabSignal)
 	end;
 
 	function Args:AddColorPicker(Config: MiniColorPicker)
-		Config = ZenHub.__CONFIG(Config,{
+		Config = Compkiller.__CONFIG(Config,{
 			Default = Color3.fromRGB(255,255,255),
 			Transparency = 0,
 			Callback = function() end
@@ -2931,9 +2931,9 @@ function ZenHub:_LoadOption(Value , TabSignal)
 
 		local ColorPicker:Frame , ColorFrame: Frame = Value:AddLink('ColorPicker' , Config.Default);
 
-		local Button = ZenHub:_Input(ColorPicker);
+		local Button = Compkiller:_Input(ColorPicker);
 
-		local ColorPicker = ZenHub:_AddColorPickerPanel(Button,function(color,opc)
+		local ColorPicker = Compkiller:_AddColorPickerPanel(Button,function(color,opc)
 			Config.Default = color;
 			Config.Transparency = opc;
 
@@ -2971,14 +2971,14 @@ function ZenHub:_LoadOption(Value , TabSignal)
 		end;
 
 		if Config.Flag then
-			ZenHub.Flags[Config.Flag] = Args;
+			Compkiller.Flags[Config.Flag] = Args;
 		end;
 
 		return Args;
 	end;
 
 	function Args:AddToggle(Config : MiniToggle)
-		Config = ZenHub.__CONFIG(Config,{
+		Config = Compkiller.__CONFIG(Config,{
 			Flag = nil,
 			Default = false,
 			Callback = function() end;
@@ -3011,7 +3011,7 @@ function ZenHub:_LoadOption(Value , TabSignal)
 		end;
 
 		if Config.Flag then
-			ZenHub.Flags[Config.Flag] = Args;
+			Compkiller.Flags[Config.Flag] = Args;
 		end;
 
 		return Args;
@@ -3021,7 +3021,7 @@ function ZenHub:_LoadOption(Value , TabSignal)
 		local Element: ImageButton = Value:AddLink("Option");
 		local BaseZ_Index = math.random(1,15) * 100;
 
-		local Signal = ZenHub.__SIGNAL(false);
+		local Signal = Compkiller.__SIGNAL(false);
 
 		local ExtractElement = Instance.new("Frame")
 		local UIStroke = Instance.new("UIStroke")
@@ -3054,36 +3054,36 @@ function ZenHub:_LoadOption(Value , TabSignal)
 					ExtractElement.Position = DropPosition
 				end;
 
-				ZenHub:_Animation(ExtractElement , Tween , {
+				Compkiller:_Animation(ExtractElement , Tween , {
 					Position = MainPosition,
 					BackgroundTransparency = 0,
 					Size = UDim2.new(0, 225, 0, UIListLayout.AbsoluteContentSize.Y)
 				});
 
-				ZenHub:_Animation(UIStroke , Tween , {
+				Compkiller:_Animation(UIStroke , Tween , {
 					Transparency = 0
 				});
 
 			else
 				Signal:Fire(false);
 
-				ZenHub:_Animation(ExtractElement , Tween , {
+				Compkiller:_Animation(ExtractElement , Tween , {
 					Position = DropPosition,
 					BackgroundTransparency = 1,
 					Size = UDim2.new(0, 225, 0, UIListLayout.AbsoluteContentSize.Y - 10)
 				});
 
-				ZenHub:_Animation(UIStroke , Tween , {
+				Compkiller:_Animation(UIStroke , Tween , {
 					Transparency = 1
 				});
 			end;
 		end;
 
-		ZenHub:_AddPropertyEvent(ExtractElement,function(bool)
+		Compkiller:_AddPropertyEvent(ExtractElement,function(bool)
 			ExtractElement.Visible = bool;
 		end);
 
-		ZenHub:_AddDragBlacklist(ExtractElement);
+		Compkiller:_AddDragBlacklist(ExtractElement);
 
 		ExtractElement.Name = "ExtractElement"
 		ExtractElement.Parent = Window
@@ -3105,7 +3105,7 @@ function ZenHub:_LoadOption(Value , TabSignal)
 		UIStroke.Color = Compkiller.Colors.HighStrokeColor
 		UIStroke.Parent = ExtractElement
 
-		table.insert(ZenHub.Elements.HighStrokeColor,{
+		table.insert(Compkiller.Elements.HighStrokeColor,{
 			Element = UIStroke,
 			Property = "Color"
 		});
