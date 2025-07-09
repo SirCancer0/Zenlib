@@ -2971,14 +2971,14 @@ function ZenHub:_LoadOption(Value , TabSignal)
 		end;
 
 		if Config.Flag then
-			Compkiller.Flags[Config.Flag] = Args;
+			ZenHub.Flags[Config.Flag] = Args;
 		end;
 
 		return Args;
 	end;
 
 	function Args:AddToggle(Config : MiniToggle)
-		Config = Compkiller.__CONFIG(Config,{
+		Config = ZenHub.__CONFIG(Config,{
 			Flag = nil,
 			Default = false,
 			Callback = function() end;
@@ -3011,7 +3011,7 @@ function ZenHub:_LoadOption(Value , TabSignal)
 		end;
 
 		if Config.Flag then
-			Compkiller.Flags[Config.Flag] = Args;
+			ZenHub.Flags[Config.Flag] = Args;
 		end;
 
 		return Args;
@@ -3021,7 +3021,7 @@ function ZenHub:_LoadOption(Value , TabSignal)
 		local Element: ImageButton = Value:AddLink("Option");
 		local BaseZ_Index = math.random(1,15) * 100;
 
-		local Signal = Compkiller.__SIGNAL(false);
+		local Signal = ZenHub.__SIGNAL(false);
 
 		local ExtractElement = Instance.new("Frame")
 		local UIStroke = Instance.new("UIStroke")
@@ -3054,36 +3054,36 @@ function ZenHub:_LoadOption(Value , TabSignal)
 					ExtractElement.Position = DropPosition
 				end;
 
-				Compkiller:_Animation(ExtractElement , Tween , {
+				ZenHub:_Animation(ExtractElement , Tween , {
 					Position = MainPosition,
 					BackgroundTransparency = 0,
 					Size = UDim2.new(0, 225, 0, UIListLayout.AbsoluteContentSize.Y)
 				});
 
-				Compkiller:_Animation(UIStroke , Tween , {
+				ZenHub:_Animation(UIStroke , Tween , {
 					Transparency = 0
 				});
 
 			else
 				Signal:Fire(false);
 
-				Compkiller:_Animation(ExtractElement , Tween , {
+				ZenHub:_Animation(ExtractElement , Tween , {
 					Position = DropPosition,
 					BackgroundTransparency = 1,
 					Size = UDim2.new(0, 225, 0, UIListLayout.AbsoluteContentSize.Y - 10)
 				});
 
-				Compkiller:_Animation(UIStroke , Tween , {
+				ZenHub:_Animation(UIStroke , Tween , {
 					Transparency = 1
 				});
 			end;
 		end;
 
-		Compkiller:_AddPropertyEvent(ExtractElement,function(bool)
+		ZenHub:_AddPropertyEvent(ExtractElement,function(bool)
 			ExtractElement.Visible = bool;
 		end);
 
-		Compkiller:_AddDragBlacklist(ExtractElement);
+		ZenHub:_AddDragBlacklist(ExtractElement);
 
 		ExtractElement.Name = "ExtractElement"
 		ExtractElement.Parent = Window
@@ -3105,7 +3105,7 @@ function ZenHub:_LoadOption(Value , TabSignal)
 		UIStroke.Color = Compkiller.Colors.HighStrokeColor
 		UIStroke.Parent = ExtractElement
 
-		table.insert(Compkiller.Elements.HighStrokeColor,{
+		table.insert(ZenHub.Elements.HighStrokeColor,{
 			Element = UIStroke,
 			Property = "Color"
 		});
