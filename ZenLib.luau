@@ -8604,9 +8604,9 @@ function Compkiller:Loader(IconId,Duration)
 	Loader.Name = "Loader"
 	Loader.Parent = CompKiller
 	Loader.AnchorPoint = Vector2.new(0.5, 0.5)
-	Loader.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	Loader.BackgroundColor3 = Color3.fromRGB(128, 0, 128)
 	Loader.BackgroundTransparency = 1
-	Loader.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	Loader.BorderColor3 = Color3.fromRGB(128, 0, 128)
 	Loader.BorderSizePixel = 0
 	Loader.Position = UDim2.new(0.5, 0, 0.5, 0)
 	Loader.Size = UDim2.new(1, 0, 1, 0)
@@ -8615,18 +8615,18 @@ function Compkiller:Loader(IconId,Duration)
 	Icon.Parent = Loader
 	Icon.AnchorPoint = Vector2.new(0.5, 0.5)
 	Icon.BackgroundTransparency = 1.000
-	Icon.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	Icon.BorderColor3 = Color3.fromRGB(128, 0, 128)
 	Icon.BorderSizePixel = 0
 	Icon.Position = UDim2.new(0.5, 0, 0.5, 0)
 	Icon.Size = UDim2.new(0, 750, 0, 750)
 	Icon.ZIndex = 100
-	Icon.Image = IconId or "rbxassetid://120245531583106"
+	Icon.Image = IconId or "rbxassetid://131585227442840"
 	Icon.ImageTransparency = 1
 
 	Vignette.Name = "Vignette"
 	Vignette.Parent = Loader
 	Vignette.BackgroundTransparency = 1.000
-	Vignette.BorderColor3 = Color3.fromRGB(27, 42, 53)
+	Vignette.BorderColor3 = Color3.fromRGB(128, 0, 128)
 	Vignette.BorderSizePixel = 0
 	Vignette.Size = UDim2.new(1, 0, 1, 0)
 	Vignette.Image = "rbxassetid://18720640102"
